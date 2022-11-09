@@ -1,0 +1,12 @@
+name: set-project-data-from-labels
+run-name: Setting Github Project Data from Issue Labels
+on:
+  issues:
+    types: labeled
+jobs:
+  set_priority:
+    name: Set issue priority from label
+    runs-on: ubuntu-latest
+  
+  steps:
+    - uses:
