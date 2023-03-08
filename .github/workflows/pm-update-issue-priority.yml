@@ -21,7 +21,6 @@ jobs:
         uses: github/update-project-action@v2
         with:
           github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
-          organization: mpguerra
           project_number: 1
           content_id: ${{ github.event.issue.id }}
           field: Priority
@@ -41,7 +40,6 @@ jobs:
         uses: github/update-project-action@v2
         with:
           github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
-          organization: mpguerra
           project_number: 1
           content_id: ${{ github.event.issue.id }}
           field: Priority
