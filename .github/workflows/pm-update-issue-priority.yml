@@ -9,6 +9,8 @@ jobs:
   set-medium-priority:
     if: github.event.label.name == 'P-Medium :zap:'
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Read event data
         id: read_event_data
@@ -27,6 +29,8 @@ jobs:
   set-low-priority:
     if: github.event.label.name == 'P-Low :snowflake:'
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Read event data
         id: read_event_data
