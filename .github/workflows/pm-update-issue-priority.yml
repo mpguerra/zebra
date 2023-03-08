@@ -19,9 +19,8 @@ jobs:
         uses: github/update-project-action@v2
         with:
           github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
-          user: mpguerra
+          organization: mpguerra
           project_number: 1
-          operation: update
           content_id: ${{ github.event.issue.id }}
           field: Priority
           value: ${{ github.event.label.name }}
@@ -38,9 +37,8 @@ jobs:
         uses: github/update-project-action@v2
         with:
           github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
-          user: mpguerra
+          organization: mpguerra
           project_number: 1
-          operation: update
           content_id: ${{ github.event.issue.id }}
           field: Priority
           value: ${{ github.event.label.name }}
