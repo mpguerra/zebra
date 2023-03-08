@@ -1,0 +1,46 @@
+name: Set issue priority from label
+
+# Configuration for setting priority for an issue in a project based on the P-* label
+on:
+  issues:
+    types: 
+      - labeled
+jobs:
+  set-medium-priority:
+    if: github.event.label.name == 'P-Medium :zap:'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Read event data
+        id: read_event_data
+        run: |
+          echo "Label: ${{ github.event.label.name }}; Issue: ${{ github.event.issue.id }}; "
+      - name: Set Medium Priority
+        id: set_medium_priority
+        uses: github/update-project-action@v2
+        with:
+          github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
+          user: mpguerra
+          project_number: 1
+          operation: update
+          content_id: ${{ github.event.issue.id }}
+          field: Priority
+          value: ${{ github.event.label.name }}
+  set-low-priority:
+    if: github.event.label.name == 'P-Low :snowflake:'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Read event data
+        id: read_event_data
+        run: |
+          echo "Label: ${{ github.event.label.name }}; Issue: ${{ github.event.issue.id }}; "
+      - name: Set Low Priority
+        id: set_low_priority
+        uses: github/update-project-action@v2
+        with:
+          github_token: ${{ secrets.ACTIONS_PM_GITHUB_PROJECTS }}
+          user: mpguerra
+          project_number: 1
+          operation: update
+          content_id: ${{ github.event.issue.id }}
+          field: Priority
+          value: ${{ github.event.label.name }}
